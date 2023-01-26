@@ -12,7 +12,20 @@ export default {
         fetchFilm() {
             axios.get('https://api.themoviedb.org/3/search/movie?api_key=705540f12290ed130ac0a76c5259312d&query=anelli')
                 .then(res => {
-                    store.visuals = res.data
+
+                    const apiVisuals = res.data.results;
+                    store.visuals = apiVisuals.map(visual => {
+                        const { title, original_title, vote_average, overview, poster_path } = visual;
+                        return {
+                            title,
+                            original_title,
+                            vote_average,
+                            overview,
+                            poster_path
+
+                        }
+                    })
+
 
                 })
         }
