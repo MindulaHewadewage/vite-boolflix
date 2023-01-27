@@ -1,12 +1,17 @@
 <script>
 import axios from 'axios';
 import { store } from './data/store';
+import AppHeader from './components/AppHeader.vue';
+import SearchTerm from './components/SearchTerm.vue'
 export default {
     data() {
         return {
-            store
+            store,
+            writtenName: ''
         }
     },
+
+    components: { AppHeader, SearchTerm },
 
     methods: {
         fetchFilm() {
@@ -38,9 +43,8 @@ export default {
 </script>
 
 <template>
-    <header>
-
-    </header>
+    <app-header></app-header>
+    <search-term></search-term>
 </template>
 
 <style>
