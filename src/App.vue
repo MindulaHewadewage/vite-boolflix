@@ -1,5 +1,6 @@
 <script>
 import axios from 'axios';
+import { api } from './data';
 import { store } from './data/store';
 import AppHeader from './components/AppHeader.vue';
 import SearchTerm from './components/SearchTerm.vue'
@@ -7,7 +8,7 @@ export default {
     data() {
         return {
             store,
-            writtenName: ''
+            searchedVisual: ''
         }
     },
 
@@ -44,7 +45,7 @@ export default {
 
 <template>
     <app-header></app-header>
-    <search-term></search-term>
+    <search-term placeholder="Cerca un titolo"></search-term>
 </template>
 
 <style>

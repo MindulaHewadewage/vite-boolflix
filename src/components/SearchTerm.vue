@@ -15,9 +15,9 @@ export default {
 </script>
 
 <template>
-    <form>
+    <form @submit.prevent="$emit('form-submit')">
         <input type="text" v-model.trim="searchedVisual" :placeholder="placeholder" @keyup="$emit('term-change', term)">
-        <button>cerca</button>
+        <button type="submit">cerca</button>
     </form>
 </template>
 
