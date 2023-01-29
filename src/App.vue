@@ -2,25 +2,37 @@
 import axios from 'axios';
 import { api } from './data';
 import { store } from './data/store';
-import AppHeader from './components/AppHeader.vue';
 import SearchTerm from './components/SearchTerm.vue'
 export default {
-    data() {
-        return {
-            store,
-            searchedVisual: ''
+    name: 'Boolfix',
+    components: { SearchTerm },
+    data: () => ({ store, visualFilter: '' }),
+
+
+
+    computed: {
+        axiosConfig() {
+            const { key } = api;
+            return {
+                params: {
+                    api_key: key,
+                    query: this.visualFilter
+                }
+            }
         }
     },
 
-    components: { AppHeader, SearchTerm },
-
     methods: {
+        updateVisualFilter(searchedVisual) {
+            this.visualFilter = searchedVisual;
+        },
         fetchFilm() {
-            axios.get('https://api.themoviedb.org/3/search/movie?api_key=705540f12290ed130ac0a76c5259312d&query=anelli')
+
+            axios.get(`${api.baseUri}/search/movie`, this.axiosConfig)
                 .then(res => {
 
                     const apiVisuals = res.data.results;
-                    store.visuals = apiVisuals.map(visual => {
+                    store[visuals] = apiVisuals.map(visual => {
                         const { title, original_title, vote_average, overview, poster_path } = visual;
                         return {
                             title,
@@ -34,18 +46,15 @@ export default {
 
 
                 })
-        }
+        },
 
     },
-    created() {
-        this.fetchFilm()
-    }
 }
 </script>
 
 <template>
-    <app-header></app-header>
-    <search-term placeholder="Cerca un titolo"></search-term>
+
+    <search-term placeholder="Cerca un titolo" @term-change="updateVisualFilter" @form-submit="fetchFilm"></search-term>
 </template>
 
 <style>
