@@ -23,30 +23,26 @@ export default {
     },
 
     methods: {
-        updateVisualFilter(searchedVisual) {
-            this.visualFilter = searchedVisual;
+        updateVisualFilter(term) {
+            this.visualFilter = term;
         },
-        fetchFilm() {
-
-            axios.get(`${api.baseUri}/search/movie`, this.axiosConfig)
+        searchVisual() {
+            if (!this.visualFilter) {
+                store.movies = [];
+                store.series = [];
+                return;
+            }
+            this.api('search/movie', 'movies');
+            this.api('search/tv', 'series');
+        },
+        api(endpoint, visual) {
+            axios.get(`${api.baseUri}/${endpoint}`, this.axiosConfig)
                 .then(res => {
-
-                    const apiVisuals = res.data.results;
-                    store[visua] = apiVisuals.map(visual => {
-                        const { title, original_title, vote_average, overview, poster_path } = visualss;
-                        return {
-                            title,
-                            original_title,
-                            vote_average,
-                            overview,
-                            poster_path
-
-                        }
-                    })
-
-
+                    store[visual] = res.data.results
                 })
-        },
+        }
+
+
 
     },
 }
@@ -54,7 +50,8 @@ export default {
 
 <template>
 
-    <search-term placeholder="Cerca un titolo" @term-change="updateVisualFilter" @form-submit="fetchFilm"></search-term>
+    <search-term placeholder="Cerca un titolo" @term-change="updateVisualFilter"
+        @form-submit="searchVisual"></search-term>
 </template>
 
 <style>
