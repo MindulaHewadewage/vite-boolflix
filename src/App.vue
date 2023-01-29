@@ -3,9 +3,10 @@ import axios from 'axios';
 import { api } from './data';
 import { store } from './data/store';
 import SearchTerm from './components/SearchTerm.vue'
+import VisualCard from './components/VisualCard.vue'
 export default {
     name: 'Boolfix',
-    components: { SearchTerm },
+    components: { SearchTerm, VisualCard },
     data: () => ({ store, visualFilter: '' }),
 
 
@@ -49,9 +50,15 @@ export default {
 </script>
 
 <template>
+    <header>
+        <search-term placeholder="Cerca un titolo" @term-change="updateVisualFilter"
+            @form-submit="searchVisual"></search-term>
+    </header>
 
-    <search-term placeholder="Cerca un titolo" @term-change="updateVisualFilter"
-        @form-submit="searchVisual"></search-term>
+    <main>
+        <visual-card v-for=""></visual-card>
+    </main>
+
 </template>
 
 <style>
