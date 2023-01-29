@@ -32,8 +32,8 @@ export default {
                 .then(res => {
 
                     const apiVisuals = res.data.results;
-                    store[visuals] = apiVisuals.map(visual => {
-                        const { title, original_title, vote_average, overview, poster_path } = visual;
+                    store[visua] = apiVisuals.map(visual => {
+                        const { title, original_title, vote_average, overview, poster_path } = visualss;
                         return {
                             title,
                             original_title,

@@ -1,7 +1,7 @@
 <script>
 export default {
     name: 'SearchTerm',
-    data: () => ({ searchedVisual: '' }),
+    data: () => ({ term: '' }),
 
     props: {
         placeholder: String
@@ -12,8 +12,7 @@ export default {
 
 <template>
     <form @submit.prevent="$emit('form-submit')">
-        <input type="text" v-model.trim="searchedVisual" :placeholder="placeholder"
-            @keyup="$emit('term-change', searchedVisual)">
+        <input type="text" v-model.trim="term" :placeholder="placeholder" @keyup="$emit('term-change', term)">
         <button type="submit">cerca</button>
     </form>
 </template>
