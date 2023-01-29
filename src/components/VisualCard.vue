@@ -1,18 +1,18 @@
 <script>
 export default {
-    name: VisualCard,
+    name: 'VisualCard',
     props: {
-        preset: Object
+        visual: Object
     }
 }
 </script>
 
 <template>
     <ul>
-        <li>{{ preset.title || preset.name }}</li>
-        <li>{{ preset.original_title || preset.original_name }}</li>
-        <li>{{ preset.original_language }}</li>
-        <li>{{ preset.vote_average }}</li>
+        <li>{{ visual.title || visual.name }}</li>
+        <li>{{ visual.original_title || visual.original_name }}</li>
+        <li>{{ visual.original_language }}</li>
+        <li>{{ visual.vote_average }}</li>
     </ul>
 </template>
 

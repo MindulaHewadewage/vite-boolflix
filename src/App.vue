@@ -56,7 +56,16 @@ export default {
     </header>
 
     <main>
-        <visual-card v-for=""></visual-card>
+        <div class="movies">
+            <h3>Movies</h3>
+            <visual-card v-for="movie in store.movies" :key="movie.id" :visual="movie"></visual-card>
+        </div>
+
+        <div class="series">
+            <h3>Series</h3>
+            <visual-card v-for="serie in store.series" :key="serie.id" :visual="serie"></visual-card>
+
+        </div>
     </main>
 
 </template>
