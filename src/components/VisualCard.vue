@@ -40,6 +40,7 @@ export default {
         <li>
             <i v-for="star in 5" :class="star <= vote ? 'fa-solid' : 'fa-regular'" class="fa-star"></i>
         </li>
+        <li>{{ visual.overview }}</li>
     </ul>
 </template>
 
