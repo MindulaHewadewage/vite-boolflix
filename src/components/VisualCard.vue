@@ -67,6 +67,7 @@ export default {
     overflow-y: auto;
     position: relative;
 
+
     display: flex;
     flex-direction: column;
 

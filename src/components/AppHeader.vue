@@ -15,16 +15,32 @@ export default {
 
 <template>
     <header>
-        <section class="logo">
-            <img src="../assets/img/logonetflix.png" alt="logo-neflix">
-        </section>
-        <section class="search">
-            <search-term placeholder="Cerca un titolo" @term-change="$emit('term-change', $event)"
-                @form-submit="$emit('form-submit')"></search-term>
-        </section>
+        <div class="container">
+
+            <section class="logo">
+                <img src="../assets/img/logonetflix.png" alt="logo-neflix">
+            </section>
+            <section class="search">
+                <search-term placeholder="Cerca un titolo" @term-change="$emit('term-change', $event)"
+                    @form-submit="$emit('form-submit')"></search-term>
+            </section>
+        </div>
     </header>
 </template>
 
 <style scoped lang="scss">
+header {
+    background-color: black;
+    padding: 10px;
+}
 
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 200px;
+}
 </style>

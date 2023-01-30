@@ -55,22 +55,22 @@ export default {
 
 
 <template>
-    <div class="container">
-        <app-header @term-change="updateVisualFilter" @form-submit="searchVisual"></app-header>
 
-        <main>
-            <div class="movies">
-                <h3>Movies</h3>
-                <visual-card v-for="movie in store.movies" :key="movie.id" :visual="movie"></visual-card>
-            </div>
+    <app-header @term-change="updateVisualFilter" @form-submit="searchVisual"></app-header>
 
-            <div class="series">
-                <h3>Series</h3>
-                <visual-card v-for="serie in store.series" :key="serie.id" :visual="serie"></visual-card>
+    <main class="container">
+        <div class="movies">
+            <h3>Movies</h3>
+            <visual-card v-for="movie in store.movies" :key="movie.id" :visual="movie"></visual-card>
+        </div>
 
-            </div>
-        </main>
-    </div>
+        <div class="series">
+            <h3>Series</h3>
+            <visual-card v-for="serie in store.series" :key="serie.id" :visual="serie"></visual-card>
+
+        </div>
+    </main>
+
 </template>
 
 <style lang="scss">
