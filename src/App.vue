@@ -50,24 +50,27 @@ export default {
 </script>
 
 <template>
-    <header>
-        <search-term placeholder="Cerca un titolo" @term-change="updateVisualFilter"
-            @form-submit="searchVisual"></search-term>
-    </header>
+    <div class="container">
 
-    <main>
-        <div class="movies">
-            <h3>Movies</h3>
-            <visual-card v-for="movie in store.movies" :key="movie.id" :visual="movie"></visual-card>
-        </div>
 
-        <div class="series">
-            <h3>Series</h3>
-            <visual-card v-for="serie in store.series" :key="serie.id" :visual="serie"></visual-card>
+        <header>
+            <search-term placeholder="Cerca un titolo" @term-change="updateVisualFilter"
+                @form-submit="searchVisual"></search-term>
+        </header>
 
-        </div>
-    </main>
+        <main>
+            <div class="movies">
+                <h3>Movies</h3>
+                <visual-card v-for="movie in store.movies" :key="movie.id" :visual="movie"></visual-card>
+            </div>
 
+            <div class="series">
+                <h3>Series</h3>
+                <visual-card v-for="serie in store.series" :key="serie.id" :visual="serie"></visual-card>
+
+            </div>
+        </main>
+    </div>
 </template>
 
 <style lang="scss">

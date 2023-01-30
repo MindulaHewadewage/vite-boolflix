@@ -27,15 +27,16 @@ export default {
 </script>
 
 <template>
-    <ul>
+
+    <ul class="visual-container">
         <li>{{ visual.title || visual.name }}</li>
         <li>{{ visual.original_title || visual.original_name }}</li>
         <li>
-            <img v-if="hasFlag" :src="flagSrc" alt="">
+            <img v-if="hasFlag" :src="flagSrc" class="flag" alt="">
             <div v-else>{{ visual.original_language }}</div>
         </li>
         <li>
-            <img :src="visualImg" alt="">
+            <!-- <img :src="visualImg" alt=""> -->
         </li>
         <li>
             <i v-for="star in 5" :class="star <= vote ? 'fa-solid' : 'fa-regular'" class="fa-star"></i>
@@ -45,5 +46,22 @@ export default {
 </template>
 
 <style scoped lang="scss">
-img {}
+.visual-container {
+    width: 342px;
+    height: 513px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    overflow-y: auto;
+
+
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.flag {
+    width: 30px;
+}
 </style>

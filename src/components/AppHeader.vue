@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 import VisualCard from './SearchTerm.vue'
 export default {
     name: AppHeader,
@@ -20,5 +20,7 @@ export default {
 </template>
 
 <style scoped lang="scss">
-
-</style>
+header {
+    min-height: 100px;
+}
+</style> -->
