@@ -17,6 +17,6 @@ export default {
     </form>
 </template>
 
-<style>
+<style scoped lang="scss">
 
 </style>

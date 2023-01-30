@@ -70,6 +70,6 @@ export default {
 
 </template>
 
-<style>
-
+<style lang="scss">
+@use './assets/sass/style.scss';
 </style>
