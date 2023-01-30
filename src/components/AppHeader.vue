@@ -1,8 +1,13 @@
-<!-- <script>
-import VisualCard from './SearchTerm.vue'
+<script>
+import SearchTerm from './SearchTerm.vue'
 export default {
-    name: AppHeader,
-    components: { SearchTerm }
+    name: 'AppHeader',
+    components: { SearchTerm },
+    methods: {
+
+    },
+    emits: ['form-submit', 'term-change']
+
 }
 
 
@@ -14,13 +19,12 @@ export default {
             <img src="../assets/img/logonetflix.png" alt="logo-neflix">
         </section>
         <section class="search">
-            <search-term></search-term>
+            <search-term placeholder="Cerca un titolo" @term-change="$emit('term-change', $event)"
+                @form-submit="$emit('form-submit')"></search-term>
         </section>
     </header>
 </template>
 
 <style scoped lang="scss">
-header {
-    min-height: 100px;
-}
-</style> -->
+
+</style>

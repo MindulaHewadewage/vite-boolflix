@@ -1,7 +1,11 @@
 <script>
 export default {
     name: 'SearchTerm',
-    data: () => ({ term: '' }),
+    data() {
+        return {
+            term: ''
+        }
+    },
 
     props: {
         placeholder: String

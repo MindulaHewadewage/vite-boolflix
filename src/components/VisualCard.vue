@@ -59,13 +59,13 @@ export default {
 <style scoped lang="scss">
 .visual-container {
     width: 342px;
-    height: 513px;
     border: 1px solid black;
     background-color: black;
     color: white;
     border-radius: 10px;
     margin: 10px;
     overflow-y: auto;
+    position: relative;
 
     display: flex;
     flex-direction: column;
@@ -93,6 +93,11 @@ export default {
 
 .visual-information {
     display: none;
+    position: absolute;
+    top: 0px;
+    background-color: rgba($color: #000000, $alpha: 0.8);
+    width: 100%;
+    height: 100%;
 }
 
 .visual-image:hover .visual-information {

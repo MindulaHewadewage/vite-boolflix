@@ -2,11 +2,12 @@
 import axios from 'axios';
 import { api } from './data';
 import { store } from './data/store';
+import AppHeader from './components/AppHeader.vue';
 import SearchTerm from './components/SearchTerm.vue'
 import VisualCard from './components/VisualCard.vue'
 export default {
     name: 'Boolfix',
-    components: { SearchTerm, VisualCard },
+    components: { AppHeader, SearchTerm, VisualCard },
     data: () => ({ store, visualFilter: '' }),
 
 
@@ -25,9 +26,12 @@ export default {
 
     methods: {
         updateVisualFilter(term) {
+            console.log('term:', term);
             this.visualFilter = term;
+            console.log(0);
         },
         searchVisual() {
+            console.log(1230);
             if (!this.visualFilter) {
                 store.movies = [];
                 store.series = [];
@@ -49,14 +53,10 @@ export default {
 }
 </script>
 
+
 <template>
     <div class="container">
-
-
-        <header>
-            <search-term placeholder="Cerca un titolo" @term-change="updateVisualFilter"
-                @form-submit="searchVisual"></search-term>
-        </header>
+        <app-header @term-change="updateVisualFilter" @form-submit="searchVisual"></app-header>
 
         <main>
             <div class="movies">
